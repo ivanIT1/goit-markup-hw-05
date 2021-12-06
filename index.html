@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./css/modern-normalize.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
+  
   <body>
     <!--Header-->
     <header class="header">
@@ -22,13 +23,13 @@
         <a class="logo" href="index.html"><span class="collortxt">Web</span>Studio</a>
         <nav class="nav-block">
           <ul class="header-navigate">
-            <li class="item"><a href="index.html" class="nav-link">Студия</a></li>
+            <li class="item"><a href="index.html" class="nav-link current">Студия</a></li>
             <li class="item"><a href="portfolio.html" class="nav-link">Портфолио</a></li>
             <li class="item"><a href="/" class="nav-link">Контакты </a></li>
           </ul>
         </nav>
         <!--contact-->
-        <!-- contact-navigate -->
+        
         <ul class="contact">
           <li class="contact-item">
             <a href="mailto:info@devstudio.com" class="contact-link">
@@ -40,9 +41,9 @@
           </li>
           <!-- item -->
           <li class="contact-item">
-            <!-- contact -->
+           
             <a href="tel:+380961111111" class="contact-link"
-              ><!-- header-icon smartphone --><svg class="contact-icon" width="10" height="16">
+              ><svg class="contact-icon" width="10" height="16">
                 <use href="./images/icon.svg#icon-smartphone"></use>
               </svg>
               +38 096 111 11 11</a
@@ -60,8 +61,10 @@
             Эффективные решения <br />
             для вашего бизнеса
           </h1>
-          <button class="button" type="button">Заказать услугу</button>
+          <button data-modal-open class="button" type="button">Заказать услугу</button>
         </div>
+         </div>
+        
       </section>
 
       <section class="section information">
@@ -123,10 +126,19 @@
       <section class="work section">
         <div class="container">
           <h2 class="title">Чем мы занимаемся</h2>
-          <ul class="image">
-            <li class="image-work"><img src="images/kod.jpg" width="370" alt="kod" /></li>
-            <li class="image-work"><img src="images/mobile.jpg" width="370" alt="mobile" /></li>
-            <li class="image-work"><img src="images/color.jpg" width="370" alt="color" /></li>
+          <ul class="work-item">
+            <li class="image-work"><img src="images/kod.jpg" width="370" alt="kod" />
+            <h3 class="work-description">
+              Десктопные приложения
+            </h3></li>
+            <li class="image-work"><img src="images/mobile.jpg" width="370" alt="mobile" />
+            <h3 class="work-description">
+            Мобильные приложения
+            </h3></li>
+            <li class="image-work"><img src="images/color.jpg" width="370" alt="color" />
+              <h3 class="work-description">
+              Дизайнерские решения
+            </h3></li>
           </ul>
         </div>
         <!--Work-->
@@ -143,29 +155,29 @@
                 <p class="profession">Product Designer</p>
                 <ul class="social-network">
                   <li class="social-item">
-                    <a class="social-link" href="https://www.instagram.com/"
-                      ><svg class="social-icon" width="20" heigth="20">
+                    <a class="social-link" href="https://www.instagram.com/">
+                      <svg class="social-icon" width="20" heigth="20">
                         <use href="./images/icon.svg#icon-instagram"></use>
                       </svg>
                     </a>
                   </li class="social-item">
                   <li>
-                    <a class="social-link" href="https://twitter.com/"
-                      ><svg class="social-icon" width="20" height="20">
+                    <a class="social-link" href="https://twitter.com/">
+                      <svg class="social-icon" width="20" height="20">
                         <use href="./images/icon.svg#icon-twitter"></use>
                       </svg>
                     </a>
                   </li>
                   <li class="social-item">
-                    <a class="social-link" href="https://www.facebook.com/"
-                      ><svg class="social-icon" width="20" height="20">
+                    <a class="social-link" href="https://www.facebook.com/">
+                      <svg class="social-icon" width="20" height="20">
                         <use href="./images/icon.svg#icon-facebook"></use>
                       </svg>
                     </a>
                   </li class="social-item">
                   <li>
-                    <a class="social-link" href="https://ru.linkedin.com/"
-                      ><svg class="social-icon" width="20" height="20">
+                    <a class="social-link" href="https://ru.linkedin.com/">
+                      <svg class="social-icon" width="20" height="20">
                         <use href="./images/icon.svg#icon-linkedin"></use>
                       </svg>
                     </a>
@@ -382,5 +394,18 @@
         </div>
       </div>
     </footer>
+       <div data-modal class="backdrop is-hidden">
+      <div  class="modal">
+        <button data-modal-close class="close-button" tape="button">
+          <svg class="close-icon" width="11" height="11">
+            <use href="./images/close.svg#close">
+    
+            </use>
+          </svg>
+
+        </button>
+      </div>
+    </div>
+      <script src="./js/modal.js"></script>
   </body>
 </html>
