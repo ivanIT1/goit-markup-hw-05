@@ -6,6 +6,7 @@
   --bacgraund: #2f303a;
   --portfolio-button: #f5f4fa;
   --logo-collor: #afb1b8;
+  --time-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 body {
   font-family: 'Roboto', sans-serif;
@@ -47,6 +48,7 @@ p {
 
 /* Навигация */
 .header-navigate .nav-link {
+  position: relative;
   color: var(--basic-coller);
   text-decoration: none;
   font-weight: 500;
@@ -55,10 +57,21 @@ p {
   letter-spacing: 0.02em;
   display: flex;
   padding: 32px 0;
+  transition: color 250ms var(--time-function);
 }
 .header-navigate .item:not(:last-child),
 .contact .contact-item:not(:last-child) {
   margin-right: 50px;
+}
+.header-navigate .current::after {
+  position: absolute;
+  content: '';
+  display: block;
+  width: 100%;
+  height: 4px;
+  bottom: 0;
+  border-radius: 2px;
+  background-color: var(--hover-collor-text);
 }
 /* правая навигация */
 .contact {
@@ -80,6 +93,7 @@ p {
   display: inline-flex;
   padding: 32px 0;
   align-items: center;
+  transition: color 250ms var(--time-function);
 }
 
 .nav-block {
@@ -108,7 +122,6 @@ p {
 }
 .overlay {
   max-width: 1600px;
-
   margin-left: auto;
   margin-right: auto;
   background-image: linear-gradient(to right, rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)),
@@ -141,6 +154,15 @@ p {
   border-radius: 4px;
   padding: 10px 32px;
   border: transparent;
+  transition-property: box-shadow, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--time-function);
+}
+.hero .button:hover,
+.hero .button:focus {
+  background-color: #188ce8;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
 }
 
 /* information section */
@@ -214,12 +236,28 @@ img {
   height: auto;
   display: block;
 }
-.work .image {
+.work-item {
   display: flex;
 }
-
+.work-description {
+  bottom: 0;
+  width: 100%;
+  height: auto;
+  padding-top: 27px;
+  padding-bottom: 27px;
+  position: absolute;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--title-color);
+  background-color: rgba(47, 48, 58, 0.8);
+}
 .image-work {
   list-style-type: none;
+  position: relative;
 }
 .image-work:not(:last-child) {
   margin-right: 30px;
@@ -293,6 +331,9 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--time-function);
 }
 .social-item {
   margin-right: 10px;
@@ -331,6 +372,9 @@ img {
   border-radius: 4px;
   justify-content: center;
   align-items: center;
+  transition-property: color, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: var(--time-function);
 }
 .company .item:not(:last-child) {
   margin-right: 30px;
@@ -380,6 +424,7 @@ img {
   font-weight: 400;
   text-decoration: none;
   font-style: normal;
+  transition: color 250ms var(--time-function);
 }
 
 .footer-contact .map {
@@ -391,6 +436,7 @@ img {
   margin-bottom: 9px;
   text-decoration: none;
   font-style: normal;
+  transition: color 250ms var(--time-function);
 }
 .address-list {
   list-style-type: none;
@@ -428,6 +474,9 @@ img {
   justify-content: center;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
+  transition-property: color, background-color, border-radius;
+  transition-duration: 250ms;
+  transition-timing-function: var(--time-function);
 }
 .footer-icon .social-link:hover,
 .footer-icon .social-link:focus {
@@ -470,6 +519,9 @@ img {
   letter-spacing: 0.03em;
   cursor: pointer;
   padding: 6px 22px;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: var(--time-function);
 }
 .project-button .button:hover,
 .project-button .button:focus {
@@ -478,6 +530,32 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
+.project-thumb {
+  position: relative;
+  overflow: hidden; /* скрыто */
+}
+
+.project-thumb .description-image {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translatey(100%);
+  padding: 63px 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.55;
+  letter-spacing: 0.03em;
+  color: var(--title-color);
+  transition: transform 250ms var(--time-function);
+  background: rgba(33, 150, 243, 0.9);
+}
+.project-link:hover .description-image,
+.project-link:focus .description-image {
+  transform: translateY(0);
+}
+
 .project-card {
   display: flex;
   flex-wrap: wrap;
@@ -494,6 +572,7 @@ img {
 .project-link {
   display: block;
   text-decoration: none;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .project-link:hover,
 .project-link:focus {
@@ -530,4 +609,48 @@ img {
   color: var(--description-collor);
   letter-spacing: 0.03em;
   font-weight: 400;
+}
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  transition: opacity 250ms var(--time-function), visibility 250ms var(--time-function);
+}
+.backdrop.is-hidden {
+  visibility: hidden;
+  opacity: 0; /* прозрачность */
+  pointer-events: none; /* пропускать клик */
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(1.5);
+}
+
+.modal {
+  height: 528px;
+  width: 581px;
+  background-color: var(--title-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition-duration: 250ms;
+  transform: translate(-50%, -50%) scale(1);
+}
+.close-button {
+  display: flex;
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  width: 30px;
+  height: 30px;
+  padding: 0 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
 }
