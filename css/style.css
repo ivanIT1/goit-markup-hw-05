@@ -69,7 +69,7 @@ p {
   display: block;
   width: 100%;
   height: 4px;
-  bottom: 0;
+  bottom: -1px;
   border-radius: 2px;
   background-color: var(--hover-collor-text);
 }
@@ -240,16 +240,17 @@ img {
   display: flex;
 }
 .work-description {
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  padding-top: 27px;
-  padding-bottom: 27px;
+  display: flex;
   position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
   font-weight: 700;
+  margin: 0;
   font-size: 14px;
   line-height: 1.14;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
   letter-spacing: 0.03em;
   text-transform: uppercase;
   color: var(--title-color);
@@ -259,6 +260,7 @@ img {
   list-style-type: none;
   position: relative;
 }
+
 .image-work:not(:last-child) {
   margin-right: 30px;
 }
@@ -335,15 +337,13 @@ img {
   transition-duration: 250ms;
   transition-timing-function: var(--time-function);
 }
-.social-item {
-  margin-right: 10px;
-}
+
 .social-network .social-link:hover,
 .social-network .social-link:focus {
   color: var(--title-color);
   background-color: var(--hover-collor-text);
 }
-.social-network .social-link:not(:last-child) {
+.social-network .social-item:not(:last-child) {
   margin-right: 10px;
 }
 .social-network .social-icon {
@@ -630,12 +630,14 @@ img {
 }
 
 .modal {
-  height: 528px;
-  width: 581px;
+  height: 582px;
+  width: 528px;
   background-color: var(--title-color);
   position: absolute;
   top: 50%;
   left: 50%;
+  transition-timing-function: var(--time-function);
+  transition-property: transform;
   transition-duration: 250ms;
   transform: translate(-50%, -50%) scale(1);
 }
